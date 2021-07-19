@@ -6,7 +6,6 @@ def execute_all_tests(tests_folder):
     unittest.TextTestRunner().run(suites)
 
 if __name__ == "__main__":
-  #execute_all_tests("ArraysAndStrings")
-  check = check_permutation.CheckPermutation("12341","54321")
-  print(check())
+  execute_all_tests("ArraysAndStrings")
+
   
