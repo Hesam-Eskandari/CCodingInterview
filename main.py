@@ -1,4 +1,5 @@
 import unittest
+from ArraysAndStrings import palindrome_permutation
 
 def execute_all_tests(tests_folder):
     suites = unittest.TestLoader().discover(tests_folder)

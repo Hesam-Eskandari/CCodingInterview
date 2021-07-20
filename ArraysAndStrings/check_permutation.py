@@ -1,5 +1,6 @@
 """
 Reference: Cracking The Coding Interview, 6th Edition, Page 90
+Given two strings, check if one is a permutation of the other
 """
 class CheckPermutation():
   def __init__(self, string_1: str, string_2: str) -> None:
