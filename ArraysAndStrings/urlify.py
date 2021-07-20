@@ -1,6 +1,8 @@
 """
 Reference: Cracking The Coding Interview, 6th Edition, Page 90
-Write a method to replace all spaces in a string with '%20'. You may assume that the string has sufficient space at the end to hold the additionel characters, and that yu are given the 'true' length of the string.
+Write a method to replace all spaces in a string with '%20'.
+You may assume that the string has sufficient space at the end to hold the additionel characters, 
+and that yu are given the 'true' length of the string.
 Example: 
   Input: 'Mr John Smith   ', 13
   Output: 'Mr%20John%20Smith'
@@ -40,7 +42,8 @@ class URLify():
     if totalSpaces == 3 * validSapces:
       return True
     else:
-      raise ValueError('Invalid input: mismatch in the number of spaces in the input string: {totalSpaces} != 3 * {validSapces}'.format(totalSpaces=totalSpaces, validSapces=validSapces))
+      raise ValueError('Invalid input: mismatch in the number of spaces in the input string: \
+      {totalSpaces} != 3 * {validSapces}'.format(totalSpaces=totalSpaces, validSapces=validSapces))
 
   def urlify(self, modified_version = False) -> str or list(str):
     j = len(self.listString)-1
