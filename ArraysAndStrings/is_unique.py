@@ -1,4 +1,5 @@
 """
+Reference: Cracking The Coding Interview, 6th Edition, Page 90
 Question: Implement an algorithm to determine if a string has all unique characters. What if you cannot use an additional datastructure?
 """
 class IsUnique():

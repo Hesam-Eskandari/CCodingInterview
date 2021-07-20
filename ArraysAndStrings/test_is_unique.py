@@ -3,19 +3,19 @@ from is_unique import IsUnique
 
 class TestIsUnique(unittest.TestCase):
   def setUp(self):
-    self.input_1 = ""
-    self.input_2 = "a"
-    self.input_3 = "1234qwer."
-    self.input_4 = "12345167890."
+    self.inputs_true = ["", "a", "1234qwer."]
+    self.inputs_false = ["12345167890."]
 
   def test_structure_map(self):
-    self.assertTrue(IsUnique(self.input_1)(additional_structure=True))
-    self.assertTrue(IsUnique(self.input_2)(additional_structure=True))
-    self.assertTrue(IsUnique(self.input_3)(additional_structure=True))
-    self.assertFalse(IsUnique(self.input_4)(additional_structure=True))
+    for n in range(len(self.inputs_true)):
+      with self.subTest(n):
+        self.assertTrue(IsUnique(self.inputs_true[n])(additional_structure=True))
+    for n in range(len(self.inputs_false)):
+      self.assertFalse(IsUnique(self.inputs_false[n])(additional_structure=True))
 
   def test_structure_none(self):
-    self.assertTrue(IsUnique(self.input_1)(additional_structure=True))
-    self.assertTrue(IsUnique(self.input_2)(additional_structure=True))
-    self.assertTrue(IsUnique(self.input_3)(additional_structure=True))
-    self.assertFalse(IsUnique(self.input_4)(additional_structure=True))
+    for n in range(len(self.inputs_true)):
+      with self.subTest(n):
+        self.assertTrue(IsUnique(self.inputs_true[n])(additional_structure=False))
+    for n in range(len(self.inputs_false)):
+      self.assertFalse(IsUnique(self.inputs_false[n])(additional_structure=False))

@@ -3,7 +3,7 @@ from urlify import URLify
 
 class TestURLify(unittest.TestCase):
   def setUp(self):
-    self.inputs = [
+    self.inputs = [\
       ['', 0], \
       ['   ', 1], \
       ['Mr John Smith    ', 13], \
@@ -24,7 +24,7 @@ class TestURLify(unittest.TestCase):
         self.assertEqual(URLify(self.inputs[n][0],self.inputs[n][1])(False), output[n])
 
   def test_urlify_list(self):
-    output = [
+    output = [\
       [''], \
       ['%','2','0'], \
       ['M','r','%','2','0','J','o','h','n','%','2','0','S','m','i','t','h'], \
