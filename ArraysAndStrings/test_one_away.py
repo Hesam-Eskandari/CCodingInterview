@@ -4,8 +4,8 @@ from ArraysAndStrings import one_away
 
 class TestOneAway(unittest.TestCase):
     def setUp(self):
-        self.inputs_true = [['abcd', 'afcd'], ['abcd', 'bcd'], ['abc', 'abc ']]
-        self.inputs_false = [['abcd', 'abdc'], ['abcd', 'acd'], ['abc', 'ab c']]
+        self.inputs_true: list[list[str]] = [['abcd', 'afcd'], ['abcd', 'bcd'], ['abc', 'abc ']]
+        self.inputs_false: list[list[str]] = [['abcd', 'abdc'], ['abcd', 'acd'], ['abc', 'ab c']]
 
     def test_is_one_away(self):
         for n in range(len(self.inputs_true)):

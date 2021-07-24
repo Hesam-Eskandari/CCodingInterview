@@ -3,8 +3,8 @@ from ArraysAndStrings import urlify
 
 
 class TestURLify(unittest.TestCase):
-    def setUp(self):
-        self.inputs = [
+    def setUp(self) -> None:
+        self.inputs: list[list[str or int]] = [
             ['', 0],
             ['   ', 1],
             ['Mr John Smith    ', 13],
@@ -12,8 +12,8 @@ class TestURLify(unittest.TestCase):
             [' Mr John Smith      ', 14],
             [' Mr John  Smith        ', 15]]
 
-    def test_urlify_str(self):
-        output = [
+    def test_urlify_str(self) -> None:
+        output: list[str] = [
             '',
             '%20',
             'Mr%20John%20Smith',
@@ -24,10 +24,10 @@ class TestURLify(unittest.TestCase):
             with self.subTest(n):
                 self.assertEqual(urlify.URLify(self.inputs[n][0], self.inputs[n][1])(False), output[n])
 
-    def test_urlify_list(self):
-        output = [
+    def test_urlify_list(self) -> None:
+        output: list[list[str]] = [
             [''],
-            ['%','2','0'],
+            ['%', '2', '0'],
             ['M', 'r', '%', '2', '0', 'J', 'o', 'h', 'n', '%', '2', '0', 'S', 'm', 'i', 't', 'h'],
             ['M', 'r', '%', '2', '0', 'J', 'o', 'h', 'n', '%', '2', '0', 'S', 'm', 'i', 't', 'h', '%', '2', '0'],
             ['%', '2', '0', 'M', 'r', '%', '2', '0', 'J', 'o', 'h', 'n', '%', '2', '0', 'S', 'm', 'i', 't', 'h'],

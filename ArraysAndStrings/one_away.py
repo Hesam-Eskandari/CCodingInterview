@@ -1,11 +1,11 @@
 class OneAway:
     def __init__(self, string1: str, string2: str) -> None:
-        self.string1 = string1
-        self.string2 = string2
+        self.string1: str = string1
+        self.string2: str = string2
 
     def __call__(self) -> bool:
         if len(self.string1) == len(self.string2):
-            count = 0
+            count: int = 0
             for idx, item in enumerate(self.string1):
                 if self.string2[idx] != item:
                     count += 1

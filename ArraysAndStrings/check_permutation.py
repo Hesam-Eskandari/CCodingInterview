@@ -6,8 +6,8 @@ Given two strings, check if one is a permutation of the other
 
 class CheckPermutation:
     def __init__(self, string_1: str, string_2: str) -> None:
-        self.string_1 = string_1
-        self.string_2 = string_2
+        self.string_1: str = string_1
+        self.string_2: str = string_2
 
     def __call__(self) -> bool:
         return self.are_permute()

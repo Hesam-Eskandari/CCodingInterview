@@ -14,8 +14,8 @@ Modified version: input is a list of characters (strings in Python). Make change
 
 class URLify:
     def __init__(self, string: str, length: int):
-        self.list_string = list(string)
-        self.length = length
+        self.list_string: list[str] = list(string)
+        self.length: int = length
 
     def __call__(self, modified_version=False) -> str or list[str]:
         if self.validate():
@@ -32,8 +32,8 @@ class URLify:
             return self.list_string
 
     def validate(self) -> bool:
-        valid_spaces = 0
-        total_spaces = 0
+        valid_spaces: int = 0
+        total_spaces: int = 0
         for idx in range(len(self.list_string)):
             if self.list_string[idx] == ' ':
                 total_spaces += 1
@@ -46,11 +46,11 @@ class URLify:
             {total_spaces} != 3 * {valid_spaces}'.format(total_spaces=total_spaces, valid_spaces=valid_spaces))
 
     def urlify(self, modified_version=False) -> str or list[str]:
-        j = len(self.list_string) - 1
+        j: int = len(self.list_string) - 1
         # loop backward and relocate elements
         for idx in range(len(self.list_string)-1, -1, -1):
             if self.list_string[idx] != ' ':
-                temp = self.list_string[j]
+                temp: str = self.list_string[j]
                 self.list_string[j] = self.list_string[idx]
                 self.list_string[idx] = temp
                 j -= 1

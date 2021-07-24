@@ -7,7 +7,7 @@ What if you cannot use any additional datastructures?
 
 class IsUnique:
     def __init__(self, string: str) -> None:
-        self.string = string
+        self.string: str = string
 
     def __call__(self, additional_structure=False) -> bool:
         if additional_structure:
@@ -17,7 +17,7 @@ class IsUnique:
 
     def structure_map(self) -> bool:
         # O(n)
-        hmap = dict()
+        hmap: dict = dict()
         for val in self.string:
             if hmap.get(val, False):
                 hmap[val] += 1
