@@ -6,7 +6,7 @@ Method one: consider casing and non-letter characters
 Method two: ignore casing and non-letter characters
 """
 
-class PalindromPermutation():
+class PalindromePermutation():
   def __init__(self, string: str):
     self.string = string
     self.letter = dict()
@@ -17,10 +17,10 @@ class PalindromPermutation():
       string = string.lower()
       for char in "abcdefghijklmnopqrstuvwxyz":
         self.letter[char] = True
-    return self.isPalindromPermutation(string)
+    return self.is_palindrome_permutation(string)
 
 
-  def isPalindromPermutation(self, string) -> bool:
+  def is_palindrome_permutation(self, string) -> bool:
     hmap = dict()
     for char in string:
       if self.letter.get(char, False) or len(self.letter.values()) == 0:
