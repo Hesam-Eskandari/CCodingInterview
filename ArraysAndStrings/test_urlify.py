@@ -1,5 +1,5 @@
 import unittest
-from urlify import URLify
+from ArraysAndStrings import urlify
 
 
 class TestURLify(unittest.TestCase):
@@ -22,7 +22,7 @@ class TestURLify(unittest.TestCase):
             '%20Mr%20John%20%20Smith']
         for n in range(len(self.inputs)):
             with self.subTest(n):
-                self.assertEqual(URLify(self.inputs[n][0], self.inputs[n][1])(False), output[n])
+                self.assertEqual(urlify.URLify(self.inputs[n][0], self.inputs[n][1])(False), output[n])
 
     def test_urlify_list(self):
         output = [
@@ -35,4 +35,4 @@ class TestURLify(unittest.TestCase):
         ]
         for n in range(len(self.inputs)):
             with self.subTest(n):
-                self.assertEqual(URLify(self.inputs[n][0], self.inputs[n][1])(True), output[n])
+                self.assertEqual(urlify.URLify(self.inputs[n][0], self.inputs[n][1])(True), output[n])

@@ -1,5 +1,5 @@
 import unittest
-from one_away import OneAway
+from ArraysAndStrings import one_away
 
 
 class TestOneAway(unittest.TestCase):
@@ -10,8 +10,8 @@ class TestOneAway(unittest.TestCase):
     def test_is_one_away(self):
         for n in range(len(self.inputs_true)):
             with self.subTest(n):
-                self.assertTrue(OneAway(self.inputs_true[n][0], self.inputs_true[n][1])())
+                self.assertTrue(one_away.OneAway(self.inputs_true[n][0], self.inputs_true[n][1])())
 
         for n in range(len(self.inputs_false)):
             with self.subTest(n):
-                self.assertFalse(OneAway(self.inputs_false[n][0], self.inputs_false[n][1])())
+                self.assertFalse(one_away.OneAway(self.inputs_false[n][0], self.inputs_false[n][1])())

@@ -1,5 +1,5 @@
 import unittest
-from palindrome_permutation import PalindromePermutation
+from ArraysAndStrings import palindrome_permutation
 
 
 class TestPalindromePermutation(unittest.TestCase):
@@ -12,15 +12,15 @@ class TestPalindromePermutation(unittest.TestCase):
     def test_is_palindrome_permutation_method_false(self):
         for n in range(len(self.input_true_method_false)):
             with self.subTest(n):
-                self.assertTrue(PalindromePermutation(self.input_true_method_false[n])(False))
+                self.assertTrue(palindrome_permutation.PalindromePermutation(self.input_true_method_false[n])(False))
         for n in range(len(self.input_false_method_false)):
             with self.subTest(n):
-                self.assertFalse(PalindromePermutation(self.input_false_method_false[n])(False))
+                self.assertFalse(palindrome_permutation.PalindromePermutation(self.input_false_method_false[n])(False))
 
     def test_is_palindrome_permutation_method_ture(self):
         for n in range(len(self.input_true_method_true)):
             with self.subTest(n):
-                self.assertTrue(PalindromePermutation(self.input_true_method_true[n])(True))
+                self.assertTrue(palindrome_permutation.PalindromePermutation(self.input_true_method_true[n])(True))
         for n in range(len(self.input_false_method_true)):
             with self.subTest(n):
-                self.assertFalse(PalindromePermutation(self.input_false_method_true[n])(True))
+                self.assertFalse(palindrome_permutation.PalindromePermutation(self.input_false_method_true[n])(True))

@@ -1,5 +1,5 @@
 import unittest
-from is_unique import IsUnique
+from ArraysAndStrings import is_unique
 
 
 class TestIsUnique(unittest.TestCase):
@@ -10,15 +10,15 @@ class TestIsUnique(unittest.TestCase):
     def test_structure_map(self):
         for n in range(len(self.inputs_true)):
             with self.subTest(n):
-                self.assertTrue(IsUnique(self.inputs_true[n])(additional_structure=True))
+                self.assertTrue(is_unique.IsUnique(self.inputs_true[n])(additional_structure=True))
         for n in range(len(self.inputs_false)):
             with self.subTest(n):
-                self.assertFalse(IsUnique(self.inputs_false[n])(additional_structure=True))
+                self.assertFalse(is_unique.IsUnique(self.inputs_false[n])(additional_structure=True))
 
     def test_structure_none(self):
         for n in range(len(self.inputs_true)):
             with self.subTest(n):
-                self.assertTrue(IsUnique(self.inputs_true[n])(additional_structure=False))
+                self.assertTrue(is_unique.IsUnique(self.inputs_true[n])(additional_structure=False))
         for n in range(len(self.inputs_false)):
             with self.subTest(n):
-                self.assertFalse(IsUnique(self.inputs_false[n])(additional_structure=False))
+                self.assertFalse(is_unique.IsUnique(self.inputs_false[n])(additional_structure=False))

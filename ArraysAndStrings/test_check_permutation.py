@@ -1,5 +1,5 @@
 import unittest
-from check_permutation import CheckPermutation
+from ArraysAndStrings import check_permutation
 
 
 class TestCheckPermutation(unittest.TestCase):
@@ -10,7 +10,7 @@ class TestCheckPermutation(unittest.TestCase):
     def test_are_permute(self):
         for n in range(len(self.inputs_true)):
             with self.subTest(n):
-                self.assertTrue(CheckPermutation(self.inputs_true[n][0], self.inputs_true[n][1])())
+                self.assertTrue(check_permutation.CheckPermutation(self.inputs_true[n][0], self.inputs_true[n][1])())
         for n in range(len(self.inputs_false)):
             with self.subTest(n):
-                self.assertFalse(CheckPermutation(self.inputs_false[n][0], self.inputs_false[n][1])())
+                self.assertFalse(check_permutation.CheckPermutation(self.inputs_false[n][0], self.inputs_false[n][1])())
