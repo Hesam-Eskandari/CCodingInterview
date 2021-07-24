@@ -11,57 +11,57 @@ Modified version: input is a list of characters (strings in Python). Make change
   Output: ['M','r','%','2','0','J','o','h','n','%','2','0','S','m','i','t','h']
 """
 
-class URLify():
-  def __init__(self, string: str, length: int):
-    self.listString = list(string)
-    self.length = length
 
-  def __call__(self, modified_version = False) -> str or list(str):
-    if self.validate():
-      return self.urlify(modified_version)
+class URLify:
+    def __init__(self, string: str, length: int):
+        self.list_string = list(string)
+        self.length = length
 
-  def __repr__(self) -> str:
-    return ''.join(self.listString)
+    def __call__(self, modified_version=False) -> str or list[str]:
+        if self.validate():
+            return self.urlify(modified_version)
 
-  @property
-  def get_listString(self) -> list:
-    if type(self.listString) == list:
-      if self.listString == list():
-        return ['']
-      return self.listString
+    def __repr__(self) -> str:
+        return ''.join(self.list_string)
 
+    @property
+    def get_list_string(self) -> list:
+        if type(self.list_string) == list:
+            if self.list_string == list():
+                return ['']
+            return self.list_string
 
-  def validate(self) -> bool:
-    validSapces = 0
-    totalSpaces = 0
-    for idx in range(len(self.listString)):
-      if self.listString[idx] == ' ':
-        totalSpaces += 1
-        if idx < self.length:
-          validSapces += 1
-    if totalSpaces == 3 * validSapces:
-      return True
-    else:
-      raise ValueError('Invalid input: mismatch in the number of spaces in the input string: \
-      {totalSpaces} != 3 * {validSapces}'.format(totalSpaces=totalSpaces, validSapces=validSapces))
+    def validate(self) -> bool:
+        valid_spaces = 0
+        total_spaces = 0
+        for idx in range(len(self.list_string)):
+            if self.list_string[idx] == ' ':
+                total_spaces += 1
+                if idx < self.length:
+                    valid_spaces += 1
+        if total_spaces == 3 * valid_spaces:
+            return True
+        else:
+            raise ValueError('Invalid input: mismatch in the number of spaces in the input string: \
+            {total_spaces} != 3 * {valid_spaces}'.format(total_spaces=total_spaces, valid_spaces=valid_spaces))
 
-  def urlify(self, modified_version = False) -> str or list(str):
-    j = len(self.listString)-1
-    # loop backward and relocate elements 
-    for idx in range(len(self.listString)-1,-1,-1):
-      if self.listString[idx] != ' ':
-        temp = self.listString[j]
-        self.listString[j] = self.listString[idx]
-        self.listString[idx] = temp
-        j -= 1
-      elif self.listString[idx] == ' ' and idx < self.length:
-        j -= 3
+    def urlify(self, modified_version=False) -> str or list[str]:
+        j = len(self.list_string) - 1
+        # loop backward and relocate elements
+        for idx in range(len(self.list_string)-1, -1, -1):
+            if self.list_string[idx] != ' ':
+                temp = self.list_string[j]
+                self.list_string[j] = self.list_string[idx]
+                self.list_string[idx] = temp
+                j -= 1
+            elif self.list_string[idx] == ' ' and idx < self.length:
+                j -= 3
 
-    # replace three adjacent spaces with '%20' 
-    for idx in range(len(self.listString)):
-      if self.listString[idx] == ' ':
-        self.listString[idx:idx+3] = ['%','2','0']
-    if modified_version:
-      return self.get_listString
-    else:
-      return self.__repr__()
+        # replace three adjacent spaces with '%20'
+        for idx in range(len(self.list_string)):
+            if self.list_string[idx] == ' ':
+                self.list_string[idx:idx+3] = ['%', '2', '0']
+        if modified_version:
+            return self.get_list_string
+        else:
+            return self.__repr__()
