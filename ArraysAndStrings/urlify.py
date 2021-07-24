@@ -13,7 +13,7 @@ Modified version: input is a list of characters (strings in Python). Make change
 
 
 class URLify:
-    def __init__(self, string: str, length: int):
+    def __init__(self, string: str, length: int) -> None:
         self.list_string: list[str] = list(string)
         self.length: int = length
 
