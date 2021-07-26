@@ -1,5 +1,6 @@
 import unittest
-from LinkedLists import linked_list
+from LinkedLists.linked_list import LinkedListSingly
+from LinkedLists.linked_list import LinkedListDoubly
 
 
 class TestLinkedListSingly(unittest.TestCase):
@@ -9,7 +10,7 @@ class TestLinkedListSingly(unittest.TestCase):
             [2, 1, 2],
             [1, 2, 3, 4, 5, 2]
         ]
-        self.inputs: list[linked_list.LinkedListSingly] = self.create_linked_lists()
+        self.inputs: list[LinkedListSingly] = [LinkedListSingly.create_linked_lists(lst) for lst in self.raw_inputs]
         self.list_linked_lists: list[list[int]] = self.raw_inputs
         self.length_linked_lists: list[int] = [1, 3, 6]
         self.list_added_linked_lists: list[list[int]] = [
@@ -22,20 +23,6 @@ class TestLinkedListSingly(unittest.TestCase):
             [1],
             [1, 3, 4, 5]
         ]
-
-    def create_linked_lists(self) -> list[linked_list.LinkedListSingly or None]:
-        lst = []
-        for raw_input in self.raw_inputs:
-            if len(raw_input) == 0:
-                raise ValueError("error creating a linked list, linked lists cannot be empty,"
-                                 " given: {list_num}".format(list_num=raw_input))
-            head = linked_list.LinkedListSingly(raw_input[0])
-            node = head
-            for i in range(len(raw_input)-1):
-                node.next = linked_list.LinkedListSingly(raw_input[i+1])
-                node = node.next
-            lst.append(head)
-        return lst
 
     def test_list_linked_list(self):
         for i in range(len(self.inputs)):
@@ -69,7 +56,7 @@ class TestLinkedListDoubly(unittest.TestCase):
             [2, 1, 2],
             [1, 2, 3, 4, 5, 2]
         ]
-        self.inputs: list[linked_list.LinkedListDoubly] = self.create_linked_lists()
+        self.inputs: list[LinkedListDoubly] = [LinkedListDoubly.create_linked_lists(lst) for lst in self.raw_inputs]
         self.list_linked_lists: list[list[int]] = self.raw_inputs
         self.length_linked_lists: list[int] = [1, 3, 6]
         self.list_add_to_head: list[list[int]] = [
@@ -87,21 +74,6 @@ class TestLinkedListDoubly(unittest.TestCase):
             [1],
             [1, 3, 4, 5]
         ]
-
-    def create_linked_lists(self) -> list[linked_list.LinkedListDoubly or None]:
-        lst = []
-        for raw_input in self.raw_inputs:
-            if len(raw_input) == 0:
-                raise ValueError("error creating a linked list, linked lists cannot be empty,"
-                                 " given: {list_num}".format(list_num=raw_input))
-            head = linked_list.LinkedListDoubly(raw_input[0])
-            node = head
-            for i in range(len(raw_input)-1):
-                node.next = linked_list.LinkedListDoubly(raw_input[i+1])
-                node.next.prev = node
-                node = node.next
-            lst.append(head)
-        return lst
 
     def test_list_linked_list(self):
         for i in range(len(self.inputs)):

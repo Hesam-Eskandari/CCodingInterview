@@ -52,6 +52,18 @@ class LinkedListSingly:
             node = node.next
         return lst
 
+    @classmethod
+    def create_linked_lists(cls, lst: list[any]):
+        if len(lst) == 0:
+            raise ValueError("error creating a linked list, linked lists cannot be empty,"
+                             " given: {list_num}".format(list_num=lst))
+        head = LinkedListSingly(lst[0])
+        node = head
+        for i in range(len(lst)-1):
+            node.next = LinkedListSingly(lst[i+1])
+            node = node.next
+        return head
+
 
 class LinkedListDoubly:
     def __init__(self, data: any):
@@ -153,3 +165,16 @@ class LinkedListDoubly:
             lst.append(node.next.data)
             node = node.next
         return lst
+
+    @classmethod
+    def create_linked_lists(cls, lst: list[any]):
+        if len(lst) == 0:
+            raise ValueError("error creating a linked list, linked lists cannot be empty,"
+                             " given: {list_num}".format(list_num=lst))
+        head = LinkedListDoubly(lst[0])
+        node = head
+        for i in range(len(lst)-1):
+            node.next = LinkedListDoubly(lst[i+1])
+            node.next.prev = node
+            node = node.next
+        return head
