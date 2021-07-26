@@ -8,4 +8,5 @@ def execute_all_tests(tests_folder):
 
 if __name__ == "__main__":
     execute_all_tests("ArraysAndStrings")
+    execute_all_tests("LinkedLists")
 
