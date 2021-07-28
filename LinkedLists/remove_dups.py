@@ -47,9 +47,7 @@ class RemoveDuplicates:
         while node.next is not None:
             if hmap.get(node.next.data, False):
                 node.next = node.next.next
-                if node.next is None:
-                    break
             else:
                 hmap[node.next.data] = True
-            node = node.next
+                node = node.next
         return self.linked_list

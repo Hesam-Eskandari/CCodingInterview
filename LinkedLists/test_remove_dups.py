@@ -26,5 +26,5 @@ class TestRemoveDups(unittest.TestCase):
         self.remove_dupes(True)
 
     def test_remove_dups_using_additional_datastructures(self):
-        self.remove_dupes(True)
+        self.remove_dupes(False)
 
